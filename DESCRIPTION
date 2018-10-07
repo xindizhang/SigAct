@@ -1,0 +1,20 @@
+Package: SigAct
+Type: Package
+title: A package for tracking mutational signatures over time.
+Version: 0.1.0
+Author: Xindi Zhang
+Maintainer: Xindi Zhang <xindi.zhang@mail.utoronto.ca>
+Description: SigAct set up TrackSig, "a framework to infer
+             mutational signatures over time", in R. It also
+             improves TrackSig by aligning signature trajectories
+             of multiple samples from the same patient and provide 
+             detailed information for mutational signatures. See the
+             git hub page for documents and examples.
+License: file LICENSE
+Encoding: UTF-8
+LazyData: ture
+Suggests:
+    testthat
+RoxygenNote: 6.1.0
+Imports: R.utils,
+    gridExtra
