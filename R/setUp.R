@@ -1,3 +1,22 @@
+## 1. Download & configure TrackSig
+# importTrackSig()
+
+## 2. Download human reference genome
+# downloadhg19()
+
+## 3. Crate VAF files
+# makeVaf()
+
+## 4. Obtain mutatioan counts
+# makeMutationCounts()
+
+## 5. Extract Mutational Signatures & plot them
+# source("compute_mutational_signatures_multiple.R")
+# setUpCompute("./src/header.R")
+# save_data_for_samples()
+# suppressMessages(compute_signatures_for_all_examples())
+# ==============================================================================================
+
 #' \code{importTrackSig} fork TrackSig framework onto local repository from Git Hub.
 #' \code{importTrackSig} @seealso \url{https://github.com/YuliaRubanova/TrackSig.git}. 
 #' Set up the sample data and place the R script for computing signature activities into
@@ -25,6 +44,7 @@ importTrackSig <- function(data_path="data/*"){
   setwd("TrackSig")
 }
 
+# ==============================================================================================
 
 #' \code{downloadhg19} Download hg 19 reference from the internet
 #' \code{downloadhg19} downloads hg 19 reference from the internet 
@@ -63,6 +83,8 @@ downloadhg19 <- function(){
   setwd(wd)
 }
 
+# ==============================================================================================
+
 #' \code{makeVaf} Use command line to convert a vcf file of point mutation to a vaf file of variant 
 #' allel frequency.
 #' @seealso \url{https://github.com/YuliaRubanova/TrackSig}
@@ -80,6 +102,7 @@ makeVaf <- function(){
   }
 }
   
+# ==============================================================================================
 
 #' \code{makeMutationCounts}, a commandline from TrackSig framework to generates information 
 #' about order of mutation occurence, mutation types, mutation counts and bootstrapping result
@@ -100,6 +123,7 @@ makeMutationCounts <- function(){
   }
 }
 
+# ==============================================================================================
 
 #' \code{cleanUp} cleans up TrackSig folder for the next round of usage
 #' \code{cleanUp} store results and generated plot (with preferred name, plot_name) 
@@ -123,20 +147,7 @@ cleanUp <- function(result_path, plot_name){
   file.rename("multisample.pdf", plot_name)
   
 }
-
-# ## 1. Download & configure TrackSig
-# importTrackSig()
-# 
-# ## 2. Download human reference genome
-# downloadhg19()
-# 
-# ## 3. Crate VAF files
-# makeVaf()
-# 
-# ## 4. Obtain mutatioan counts
-# makeMutationCounts()
-# 
-# ## 5. Extract Mutational Signatures & plot them
+# ==============================================================================================
 
 #' \code{generatePlots} gathers all the function calls and generates plot.
 #' \code{generatePlots} generates one pdf plot for patient with multiple sample

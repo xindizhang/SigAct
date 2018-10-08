@@ -13,12 +13,15 @@ setUpCompute <- function(path){
   source(path)
 }
 
+# ==============================================================================================
 
 # source("src/header.R")
 library(gridExtra)
 
 group = 0
 EXAMPLES_PER_GROUP <- 500
+
+# ==============================================================================================
 
 #' \code{save_data_for_samples} Prepare all the data needed for plots
 #'
@@ -134,6 +137,7 @@ save_data_for_samples <- function(dir_counts = DIR_COUNTS,  bootstrap_counts = B
   }
 }
 
+# ==============================================================================================
 
 #' \code{compute_signatures_for_all_examples} Generate activitracjectories of mutational signatures with patients
 #' with multiple samples
@@ -274,6 +278,5 @@ compute_signatures_for_all_examples <- function(dir_counts = DIR_COUNTS)
   
 }
 
-# save_data_for_samples()
-# suppressMessages(compute_signatures_for_all_examples())
+
 # [END]

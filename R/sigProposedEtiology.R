@@ -15,6 +15,8 @@ readSignatures <- function(path="./mutational_signatures.txt"){
 }
 
 
+# ==============================================================================================
+
 #' \code{setUpCompute} source the TrackSig/src/header.R code as required for TrackSig
 #'
 #' \code{setUpCompute} The framework of TrackSig requires to header.R to be sourced
