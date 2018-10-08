@@ -1,26 +1,23 @@
-# rpt
+# SigAct
 
-## R Package Template
+## Track activity of mutational signatures
 
-This is a template RStudio project for R packages, loosely based on Hadley Wickham's
+It introduce TrackSig to R and add more functions.
 
-  [R Packages](http://r-pkgs.had.co.nz/) <http://r-pkgs.had.co.nz/>
+  [TrackSig](https://github.com/YuliaRubanova/TrackSig)
+  <https://github.com/YuliaRubanova/TrackSig>
+  
+  [TrackSig paper](https://www.biorxiv.org/content/early/2018/02/05/260471.full.pdf+html)
+  <https://www.biorxiv.org/content/early/2018/02/05/260471.full.pdf+html>
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
------------------------------------------------
+##### Note: It is haavily associated with TrackSig, so please install the dependency of TrackSig.The installation may take a long time, so please be prepared!
+Three addtional R package is required for this pacakge:
+filesstrings
+, R.utils
+, filesstrings
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Note: you can't push empty directories to your repository. Make sure youu keep
-at least one file in every directory that you want to keep during development.
- 
------------------------------------------------
-
-Some useful keyboard shortcuts for package authoring:
-
-* Build and Reload Package:  `Cmd + Shift + B`
-* Update Documentation:      `Cmd + Shift + D` or `devtools::document()`
-* Test Package:              `Cmd + Shift + T`
-* Check Package:             `Cmd + Shift + E` or `devtools::check()`
-
------------------------------------------------
 
 
 Load the package (outside of this project) with:
