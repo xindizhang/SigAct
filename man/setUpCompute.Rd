@@ -11,7 +11,7 @@ setUpCompute(path)
 \item{path}{absolute path of header.R in your TrackSig/src folder}
 }
 \description{
-\code{setUpCompute} The framework of TrackSig requires to header.R to be sourced 
+\code{setUpCompute} The framework of TrackSig requires to header.R to be sourced
 to run the following functions.
 }
 \examples{

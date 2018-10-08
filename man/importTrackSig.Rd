@@ -2,16 +2,24 @@
 % Please edit documentation in R/setUp.R
 \name{importTrackSig}
 \alias{importTrackSig}
-\title{\code{importTrackSig} fork TrackSig framework onto local repository from Git Hub.}
+\title{\code{importTrackSig} fork TrackSig framework onto local repository from Git Hub.
+\code{importTrackSig} @seealso \url{https://github.com/YuliaRubanova/TrackSig.git}. 
+Set up the sample data and place the R script for computing signature activities into
+the TrackSig src folder. Thank Mehdi Layeghifard for helping me with the functions and 
+debug.}
 \usage{
-importTrackSig()
+importTrackSig(data_path = "data/*")
+}
+\arguments{
+\item{data_path}{the absolute path of input data}
 }
 \description{
 \code{importTrackSig} fork TrackSig framework onto local repository from Git Hub.
+\code{importTrackSig} @seealso \url{https://github.com/YuliaRubanova/TrackSig.git}. 
+Set up the sample data and place the R script for computing signature activities into
+the TrackSig src folder. Thank Mehdi Layeghifard for helping me with the functions and 
+debug.
 }
 \examples{
 importTrackSig()
-}
-\seealso{
-\url{https://github.com/YuliaRubanova/TrackSig.git}
 }

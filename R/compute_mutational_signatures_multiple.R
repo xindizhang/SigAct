@@ -1,9 +1,9 @@
-EXAMPLES_PER_GROUP <- 500
+
 #' This is modified based on TrackSig's oringinal compute_mutational_signatures.R
 #' \code{setUpCompute} source the TrackSig/src/header.R code as required for TrackSig
 #'
-#' \code{setUpCompute} The framework of TrackSig requires to header.R to be sourced 
-#' to run the following functions. 
+#' \code{setUpCompute} The framework of TrackSig requires to header.R to be sourced
+#' to run the following functions.
 #' @param path absolute path of header.R in your TrackSig/src folder
 #' @examples
 #' path <- "c://User//cindy//Documents//BCB410//TrackSig//src//header.R"
@@ -12,6 +12,13 @@ EXAMPLES_PER_GROUP <- 500
 setUpCompute <- function(path){
   source(path)
 }
+
+
+# source("src/header.R")
+library(gridExtra)
+
+group = 0
+EXAMPLES_PER_GROUP <- 500
 
 #' \code{save_data_for_samples} Prepare all the data needed for plots
 #'
@@ -138,7 +145,7 @@ save_data_for_samples <- function(dir_counts = DIR_COUNTS,  bootstrap_counts = B
 #' @export
 compute_signatures_for_all_examples <- function(dir_counts = DIR_COUNTS)
 {
-  group = 0
+  # group <- 0
   add_early_late_transition = TRUE
   
   age_signatures <- c("S1", "S5", "L1", "1", "5a", "5b")
@@ -256,27 +263,17 @@ compute_signatures_for_all_examples <- function(dir_counts = DIR_COUNTS)
     plots_count <- plots_count + 1
   }
   
-  ######################################code modified by xindi################################################
+  ######################################code written by xindi################################################
   # added a list to store the plots for multiple samples
   # visulize the two plots in R viewer
   grid.arrange(plots[[1]], plots[[2]], nrow = 1)
  
   # save both of them in one pdf for easier intepretation
   g <- arrangeGrob(plots[[1]], plots[[2]], nrow = 1)
-  suppressWarnings(ggsave(file="whatever.pdf", g, width = 12*1.5, height=5))
+  suppressWarnings(ggsave(file="multisample.pdf", g, width = 12*1.5, height=5))
   
 }
 
-#' \code{generatePlots} Generate activitracjectories of mutational signatures with patients
-#' with multiple samples
-#' \code{generatePlots} Please see:
-#' \url{https://github.com/YuliaRubanova/TrackSig/blob/master/src/compute_mutational_signatures.R}
-#' @examples
-#' generatePlots()
-#' @export
-generatePlots <- function(){
-  save_data_for_samples()
-  suppressMessages(compute_signatures_for_all_examples())
-}
-
+# save_data_for_samples()
+# suppressMessages(compute_signatures_for_all_examples())
 # [END]
