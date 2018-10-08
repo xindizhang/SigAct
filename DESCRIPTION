@@ -1,6 +1,6 @@
 Package: SigAct
 Type: Package
-title: A package for tracking mutational signatures over time.
+Title: A package for tracking mutational signatures over time.
 Version: 0.1.0
 Author: Xindi Zhang
 Maintainer: Xindi Zhang <xindi.zhang@mail.utoronto.ca>

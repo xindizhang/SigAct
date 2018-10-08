@@ -135,7 +135,7 @@ makeMutationCounts <- function(){
 #' cleanUp(result_path, "tumor_31.pdf")
 #' @export
 cleanUp <- function(result_path, plot_name){
-  create_dir(result_path)
+  dir.create(result_path)
   file.copy(from="results_signature_trajectories", to=result_path, 
             overwrite = TRUE, recursive = TRUE, 
             copy.mode = TRUE)
