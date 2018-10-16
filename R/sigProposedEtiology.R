@@ -6,7 +6,7 @@
 #' @return a data frame of mutational signatures with conlums: signatures, 
 #' Proposed_etiology and detailed information of signature etiology
 #' @examples
-#' path <- "./mutational_signatures.txt"
+#' path <- "c://User//cindy//Documents//BCB410//SigAct//data//"
 #' mutationalSig <- readSignatures(path)
 #' @export
 readSignatures <- function(path="./mutational_signatures.txt"){
@@ -23,7 +23,7 @@ readSignatures <- function(path="./mutational_signatures.txt"){
 #' to run the following functions.
 #' @param path absolute path of header.R in your TrackSig/src folder
 #' @examples
-#' path <- "c://User//cindy//Documents//BCB410//TrackSig//src//header.R"
+#' path <- "c://User//cindy//Documents//BCB410//SigAct//data//mutational_signatures.txt"
 #' setUpCompute(path)
 #' @export
 sigProposedEtiology <- function(sigName, mutationalSig){
