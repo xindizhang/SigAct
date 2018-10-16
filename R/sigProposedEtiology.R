@@ -23,8 +23,7 @@ readSignatures <- function(path="./mutational_signatures.txt"){
 #' to run the following functions.
 #' @param path absolute path of header.R in your TrackSig/src folder
 #' @examples
-#' path <- "c://User//cindy//Documents//BCB410//SigAct//data//mutational_signatures.txt"
-#' setUpCompute(path)
+#' sigProposedEtiology("SBS1", mutationalSig)
 #' @export
 sigProposedEtiology <- function(sigName, mutationalSig){
   sigNames <- mutationalSig$Mutational_Signature

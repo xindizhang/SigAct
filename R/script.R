@@ -21,5 +21,5 @@ suppressMessages(compute_signatures_for_all_examples())
 # chcek proposed etiology of mutational signature
 path <- "absolute path of mutational_signatures.txt"
 mutationalSig <- readSignatures(path)
-sigProposedEtiology("SBS1")
+sigProposedEtiology("SBS1", mutationalSig)
 # [END]
