@@ -1,5 +1,7 @@
+library("SigAct")
 ## 1. Download & configure TrackSig
 importTrackSig()
+
 
 ## 2. Download human reference genome
 downloadhg19()

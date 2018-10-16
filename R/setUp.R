@@ -26,7 +26,7 @@
 #' @examples
 #' importTrackSig()
 #' @export
-importTrackSig <- function(data_path="data/*"){
+importTrackSig <- function(data_path="./inst/") {
   download.file("https://github.com/YuliaRubanova/TrackSig/archive/master.zip", "TrackSig.zip")
   unzip("TrackSig.zip")
   file.rename("TrackSig-master", "TrackSig")
