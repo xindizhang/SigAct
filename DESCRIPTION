@@ -12,7 +12,7 @@ Description: SigAct set up TrackSig, "a framework to infer
              git hub page for documents and examples.
 License: file LICENSE
 Encoding: UTF-8
-LazyData: ture
+LazyData: TRUE
 Suggests:
     testthat
 RoxygenNote: 6.1.0
