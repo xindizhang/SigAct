@@ -26,7 +26,7 @@
 #' @examples
 #' importTrackSig()
 #' @export
-importTrackSig <- function(data_path="./inst/") {
+importTrackSig <- function() {
   download.file("https://github.com/YuliaRubanova/TrackSig/archive/master.zip", "TrackSig.zip")
   unzip("TrackSig.zip")
   file.rename("TrackSig-master", "TrackSig")
@@ -35,11 +35,12 @@ importTrackSig <- function(data_path="./inst/") {
   
   # Move examples to data folder
   system("rm TrackSig/data/*")
-  system("cp data_path TrackSig/data")
+  system("cp inst/*.vcf ./TrackSig/data")
+  system("cp inst/*.txt ./TrackSig/data")
   
   # Move plotting codes to TrackSig source folder
   system("cp R/compute_mutational_signatures_multiple.R TrackSig")
-  system("cp inst/mutational_signatures.txt TrackSig")
+  system("pip2 install pyvcf") 
   # Change to TrackSig directory
   setwd("TrackSig")
 }

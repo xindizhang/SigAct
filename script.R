@@ -1,3 +1,5 @@
+### Please make sure to download all dependencies for TrackSig 
+### https://github.com/YuliaRubanova/TrackSig
 library("SigAct")
 ## 1. Download & configure TrackSig
 importTrackSig()
