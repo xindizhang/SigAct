@@ -1,3 +1,0 @@
-ID	tumortype
-example1	ALL
-example2	ALL

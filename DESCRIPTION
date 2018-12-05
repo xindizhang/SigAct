@@ -1,6 +1,6 @@
 Package: SigAct
 Type: Package
-Title: A package for tracking mutational signatures over time.
+Title: A package for tracking mutational signatures over time
 Version: 0.1.0
 Author: Xindi Zhang
 Maintainer: Xindi Zhang <xindi.zhang@mail.utoronto.ca>
@@ -15,7 +15,10 @@ Encoding: UTF-8
 LazyData: TRUE
 Suggests:
     testthat
-RoxygenNote: 6.1.0
-Imports: R.utils,
+RoxygenNote: 6.1.1
+Imports: 
+    ggplot2,
+    reshape2,
     gridExtra,
-    filesstrings
+    shiny,
+    utils

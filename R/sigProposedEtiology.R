@@ -1,39 +1,39 @@
-#' \code{readSignatures} provide information about signatures
+# sigProposedEtiology,R
+
+#' \code{readSignatures} provide information about signatures' proposed etiology
 #'
-#' \code{readSignatures} takes external file of signature information and 
-#' convert it to R data frame
-#' @param path absolute path external file of mutational signature information
-#' @return a data frame of mutational signatures with conlums: signatures, 
+#' \code{readSignatures} takes external file of signatures' proposed etiology and 
+#' convert it to R data frame. Helper function for sigProposedEtiology.
+#' 
+#' @return a data frame of proposed etiology of mutational signature with conlums: signatures, 
 #' Proposed_etiology and detailed information of signature etiology
-#' @examples
-#' path <- "./mutational_signatures.txt"
-#' mutationalSig <- readSignatures(path)
-#' @export
-readSignatures <- function(path="./mutational_signatures.txt"){
-  mutationalSig <- read.table(path, sep = '\t', header=T, stringsAsFactors=FALSE, quote='\"',colClasses=c("character","character","character","character"))
+readSignatures <- function(){
+  path <- system.file("extdata", "sigProposedEtiology.txt", package = "SigAct")
+  mutationalSig <- utils::read.table(path, sep = '\t', header=T, stringsAsFactors=FALSE, quote='\"',colClasses=c("character","character","character","character"))
   return(mutationalSig)
 }
 
 
-# ==============================================================================================
-
-#' \code{setUpCompute} source the TrackSig/src/header.R code as required for TrackSig
+#' \code{sigProposedEtiology} Give proposed etiology of mutational signature
 #'
-#' \code{setUpCompute} The framework of TrackSig requires to header.R to be sourced
-#' to run the following functions.
-#' @param path absolute path of header.R in your TrackSig/src folder
+#' \code{sigProposedEtiology} This function takes signature ID and give the 
+#' proposed etiology of mutational signature
+#' 
+#' @param sigName ID of a signature
+#' 
 #' @examples
-#' path <- "c://User//cindy//Documents//BCB410//TrackSig//src//header.R"
-#' setUpCompute(path)
+#' sigProposedEtiology("S1")
 #' @export
-sigProposedEtiology <- function(sigName, mutationalSig){
+sigProposedEtiology <- function(sigName){
+  mutationalSig <- readSignatures()
   sigNames <- mutationalSig$Mutational_Signature
   if (sigName %in% sigNames)
   {
     sigIndex <- which(mutationalSig$Mutational_Signature == sigName)
     etiology <- mutationalSig$Details[sigIndex]
-    return(etiology)
+    result <- paste(sigName, etiology, sep = ": ")
+    return(result)
   }else{print("Invalid Signature name")}
-  
-  
 }
+
+# [END]
