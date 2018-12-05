@@ -37,7 +37,8 @@ a .txt file of signaficant signature activity change point, and a .txt
 file for the pesudo-timeline) and generates a plot of a pesudotime 
 (extimated by mutant allel per cell) vs. signature activities for single 
 sample. For two two chronocally related samples, it takes six input file 
-and generate the plot.
+and generate the plot. This function is inspired by TrackSig. 
+Please see reference at the top of this file
 }
 \examples{
 # For single sample
