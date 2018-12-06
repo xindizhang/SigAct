@@ -13,7 +13,7 @@ server <- function(input, output) {
     result <- MutSig(file1$datapath, file2$datapath, file3$datapath)
     plot <- result[[1]]
     
-    signatures <- result[[3]]
+    signatures <- result[[2]]
     sige <- c()
     for (signature in signatures){
       sige <- c(sige, sigProposedEtiology(signature))
