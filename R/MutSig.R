@@ -1,5 +1,5 @@
 # MutSig.R
-# Note that The code in this file is modified based on TrackSig. 
+# Note that The code in this file is modified based on TrackSig.
 # Particular of the following scripts with function names in parethese:
 # plotting.R (plot_signatures):
 # https://github.com/YuliaRubanova/TrackSig/blob/master/src/plotting.R
@@ -25,7 +25,7 @@ globalVariables(c("variable", "value", "Signatures"))
 #' a .txt file of signaficant signature activity change point, and a .txt 
 #' file for the pesudo-timeline) and generates a plot of a pesudotime 
 #' (extimated by mutant allel per cell) vs. signature activities for single 
-#' sample. For two two chronocally related samples, it takes six input file 
+#' sample. For two two chronological samples, it takes six input file 
 #' and generate the plot. This function is inspired by TrackSig. 
 #' Please see reference at the top of this file
 #'  
@@ -42,8 +42,8 @@ globalVariables(c("variable", "value", "Signatures"))
 #' formate
 #' 
 #' @return a list containg a pesudotime (estimated by number of mutants per 
-#' cancer cell) vs.signature activity plot and signatures. For two chronocally 
-#' related samples, it returns list containg above information for each sample
+#' cancer cell) vs.signature activity plot and signatures. For two chronological 
+#' samples, it returns list containg above information for each sample
 #'  
 #' @examples
 #' # For single sample
@@ -78,12 +78,13 @@ MutSig <- function(sigActPoints, changepoints, phis,
     
     # added a list to store the plots for multiple samples
     # visulize the two plots in R viewer
+    
     plots <- list()
     plots[[1]] <- g1[[1]]
     plots[[2]] <- g2[[1]]
-    gridExtra::grid.arrange(plots[[1]], plots[[2]], nrow = 1)
+    gridExtra::arrangeGrob(plots[[1]], plots[[2]], nrow = 1)
     # Return a list of list containg plot and signatures for both samples
-    return(cbind(g1, g2))
+    return(list(sample1 = g1, sample2 = g2))
     
   }else{            # If the files for the second sample is not given 
     return(g1)      # Return the plot and signatures for the first sample

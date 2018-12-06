@@ -1,0 +1,117 @@
+---
+title: "SigAct: Track mutational signature activities"
+author: "Xindi Zhang"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## SigAct
+SigAct is a visualization tool for racking mutational signature activities. It is built based on the results of TrackSig. 
+The objectives of SigAct are:
+  
+  * To take "time" component into consideration. It lies two chronologincally ordered samples side by side, so that the chages of mutational signature activities can be viewed more directly
+  * To provide the proposed etiology for signatures 
+  * To make the process more interactive and avaliable for more general popultion
+
+Please refer to the reference session for the complete reference and information for TrackSig
+
+## Installing SigAct
+SigAct can be download from my github page following this link: https://github.com/xindizhang/SigAct.git
+
+SigAct can also installed in R studio using the following code: 
+`devtools::install_github("https://github.com/xindizhang/SigAct.git")`
+
+## Use SigAct
+SigAct requires three results files from TrackSig: mistures.csv, changepoints.txt, phis.txt. 
+
+  * Mixtures.cvs: A file cointaining signature activities of all the signatures in the sample across the pesudo-timeline. The pesudo-timeline is estimated by the number of mutant cell per cancer cell. The signature activities is represented by the proportion of total signature activity in percentage.
+  * changepoints.txt: A file with a list of time when the mutational signature activities changed significantly
+  * phis.txt: The pesudo-timeline
+  
+If you do not have these data avaliable, you can go to TrackSig. TrackSig takes VCF file of point mutation, generates all the above dataf files and a pdf file of mutational signature activity. For more detail, please see:
+
+  * Github of TrackSig: https://github.com/YuliaRubanova/TrackSig
+  * Journal of TrackSig: https://www.biorxiv.org/content/early/2018/11/15/260471
+
+There are two sets of input example data, example script and example results in SigAct package for reference and learning purpose. The following example is demonstrated using these data files
+
+SigAct can be used in RStudio by script or in Rshiny interfaces:
+
+### Using SigAct by scripts:
+#### Generation of mutational signature activity plots
+MutAct function takes the three required input file and returns a plot of mutational signature activty across pesudo-time, and a vector of signatures in the samples.
+You can use MutAct for both single sample and two chronologically orderd samples. For two samples, it gives a list of list containing the return values mentioned above for both samples.
+
+See the code below for example:
+```
+# For single sample
+# Assign files
+sigActPoints <- system.file("extdata", "sigActPoints.csv", package = "SigAct")
+changepoints <- system.file("extdata", "changepoints.txt", package = "SigAct")
+phis <- system.file("extdata", "phis.txt", package = "SigAct")
+
+# Generate plot for sinhle sample
+sinResult <- MutSig(sigActPoints, changepoints, phis)
+# display the plot
+sinResult[[1]]
+# (continued) for two samples
+sigActPoints2 <- system.file("extdata", "sigActPoints2.csv", package = "SigAct")
+changepoints2 <- system.file("extdata", "changepoints2.txt", package = "SigAct")
+phis2 <- system.file("extdata", "phis2.txt", package = "SigAct")
+MutSig(sigActPoints, changepoints, phis, sigActPoints2, changepoints2, phis2)
+```
+
+#### Check proposed etiology for signatures
+SigAct provides function to check the proposed etiology of a given signature. It takes the signature ID as an input and returns its description
+```
+signature <- "S1"
+sigProposedEtiology(signature)
+```
+Example output for code above:
+[1] "S1: An endogenous mutational process initiated by spontaneous or enzymatica deamination of 5-mehylcytosine to thymine which generates G:T mistaches in double strand DNA. Failure to detect and remove these mistaches prior to DNA replication results in fixation of the T substitution for C."
+
+### Using Rshiny Interfaces:
+
+For single sample, imply run function ```runSinApp()``` and will lead you to a Rshiny page. You are allowed to select three file as input and a mutational signature activity plot will be generated. The signatures and their proposed etiology will pop up at the bottom at the interface page when you click the plot.
+
+For two samples, run ```runMultiApp()```. A interface will show up and requires six input files. After all files are select, the mutational signature activity vs. pesudotime plot will be shown on the interface. You can check the mutational signatures and their proposed etiology for each plot.
+
+## Interpreting SigAct
+
+## Reference
+### TrackSig
+Note that The code for this package is greatly inspired by TrackSig.
+Particular of the following scripts with function names in parethese:
+
+  * plotting.R (plot_signatures):https://github.com/YuliaRubanova/TrackSig/blob/master/src/plotting.R
+  * helper_functions.R (read_mixtures):https://github.com/YuliaRubanova/TrackSig/blob/master/src/helper_functions.R
+  * compute_mutational_signatures.R(compute_signatures_for_all_examples):
+  https://github.com/YuliaRubanova/TrackSig/blob/master/src/compute_mutational_signatures.R
+
+Please follow the link to the github and the paper:
+  * Github: https://github.com/YuliaRubanova/TrackSig
+  * Literature: https://www.biorxiv.org/content/early/2018/11/15/260471
+Authors: Yulia Rubanova, Ruian Shi, Roujia Li, Jeff Wintersinger, Nil Sahin, Amit Deshwar, Quaid Morris. TrackSig: reconstructing evolutionary trajectories of mutations in cancer. 2018. PCAWG Evolution and Heterogeneity Working Group, PCAWG network
+
+Access data: Octomber and December, 2018 
+
+### Mutalisk
+Infomation of the proposed etiology is based on Mutalisk, a wbsite tool for somatic genome mutations analysis
+For more infomation:
+
+  * Please visit the website: http://mutalisk.org/
+  * Please see the original paper by: Jongkeun Lee,  Andy Jinseok Lee, June-Koo Lee,  Jongkeun Park,  Youngoh Kwon, Seongyeol Park,  Hyonho Chun, Young Seok Ju,  Dongwan Hong. 2018. Mutalisk: a web-based somatic MUTation AnaLyIS toolKit for genomic, transcriptional and epigenomic signatures. Nucleic Acids Research. Vol 46. Website: https://academic.oup.com/nar/article/46/W1/W102/5001159, 
+
+Access data: Octomber, 2018
+

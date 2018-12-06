@@ -1,4 +1,11 @@
-# sigProposedEtiology,R
+# sigProposedEtiology.R
+# Infomation of the proposed etiology is based on Mutalisk, a wbsite tool for somatic genome mutations analysis
+# For more infomation:
+# Please visit the website: http://mutalisk.org/
+# Please see the original paper by: Jongkeun Lee,  Andy Jinseok Lee, June-Koo Lee,  Jongkeun Park, Youngoh Kwon, 
+# Seongyeol Park,  Hyonho Chun, Young Seok Ju,  Dongwan Hong. 2018. Mutalisk: a web-based somatic MUTation AnaLyIS 
+# toolKit for genomic, transcriptional and epigenomic signatures. Nucleic Acids Research. Vol 46. 
+# Website: https://academic.oup.com/nar/article/46/W1/W102/5001159,
 
 #' \code{readSignatures} provide information about signatures' proposed etiology
 #'

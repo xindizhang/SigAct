@@ -4,15 +4,12 @@ library(shiny)
 server <- function(input, output) {
   
   observe({
-    file1 = input$file1
-    file2 = input$file2
-    file3 = input$file3
+    file1 <- input$file1
+    file2 <- input$file2
+    file3 <- input$file3
     if (is.null(file1) || is.null(file2) || is.null(file3)) {
       return(NULL)
     }
-    mixtures = file1$datapath
-    changepoints = file2$datapath
-    phis = file3$datapath
     result <- MutSig(file1$datapath, file2$datapath, file3$datapath)
     plot <- result[[1]]
     
@@ -51,13 +48,11 @@ ui <- fluidPage(
       tags$hr(),
       fileInput('file3', 'Select the phis.txt file')
     ),
-    mainPanel(
-      plotOutput("plot", click = "plot_click",
-                 dblclick = dblclickOpts(
-                   id = "plot_dblclick"
-                 ))
+    mainPanel(plotOutput("plot", click = "plot_click", 
+                         dblclick = dblclickOpts(id = "plot_dblclick"))
     )
   ),
+  
   fluidRow(
     column(width = 5,
            verbatimTextOutput("click_info")
@@ -69,3 +64,4 @@ ui <- fluidPage(
 
 shinyApp(ui = ui, server = server)
 
+# [END]

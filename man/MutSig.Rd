@@ -27,8 +27,8 @@ formate}
 }
 \value{
 a list containg a pesudotime (estimated by number of mutants per 
-cancer cell) vs.signature activity plot and signatures. For two chronocally 
-related samples, it returns list containg above information for each sample
+cancer cell) vs.signature activity plot and signatures. For two chronological 
+samples, it returns list containg above information for each sample
 }
 \description{
 \code{MutSig} takes three input file (a .csv file of signature activities 
@@ -36,7 +36,7 @@ corrdinate where x is the esudotime and y is the signature activity,
 a .txt file of signaficant signature activity change point, and a .txt 
 file for the pesudo-timeline) and generates a plot of a pesudotime 
 (extimated by mutant allel per cell) vs. signature activities for single 
-sample. For two two chronocally related samples, it takes six input file 
+sample. For two two chronological samples, it takes six input file 
 and generate the plot. This function is inspired by TrackSig. 
 Please see reference at the top of this file
 }

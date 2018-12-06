@@ -5,8 +5,8 @@
 #' \code{runRptApp} launches the shiny app for which the code has been placed in  \code{./inst/shiny-scripts/rptApp/}.
 #' @export
 
-runRptApp <- function() {
-  appDir <- system.file("shiny_scripts", "rptApp", package = "SigAct")
+runMultiApp <- function() {
+  appDir <- system.file("shiny_scripts", "multiApp", package = "SigAct")
   shiny::runApp(appDir, display.mode = "normal")
   return()
 }
