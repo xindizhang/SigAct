@@ -87,7 +87,6 @@ For single sample, imply run function ```runSinApp()``` and will lead you to a R
 
 For two samples, run ```runMultiApp()```. A interface will show up and requires six input files. After all files are select, the mutational signature activity vs. pesudotime plot will be shown on the interface. You can check the mutational signatures and their proposed etiology for each plot.
 
-## Interpreting SigAct
 
 ## Reference
 ### TrackSig
